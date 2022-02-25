@@ -22,34 +22,31 @@
       <h2>Password Generator</h2>
       <div class="result-container">
         <span id="result"></span>
-        <button class="btn" id="clipboard">
-        <i class="far fa-clipboard"></i></button>
       </div>
       <div class="settings">
         <div class="setting">
           <label>Password Length</label>
-          <input type="number" id="length" min="4" max="20" value="20" />
+          <input type="number" id="length" min="4" max="15" value="15" />
         </div>
         <div class="setting">
           <label>Include Upper Case Letters</label>
-          <input type="checkbox" id="uppercase" checked />
+          <input type="checkbox" id="uppercase"  />
         </div>
         <div class="setting">
           <label>Include Lower Case Letters</label>
-          <input type="checkbox" id="lowercase" checked />
+          <input type="checkbox" id="lowercase" />
         </div>
         <div class="setting">
           <label>Include numbers</label>
-          <input type="checkbox" id="number" checked />
+          <input type="checkbox" id="number" />
         </div>
         <div class="setting">
           <label>Include Symbols</label>
-          <input type="checkbox" id="symbol" checked />
+          <input type="checkbox" id="symbol" />
         </div>
       </div>
       <button class="btn btn-large" id="generate">Generate Password</button>
     </div>
-    <!-- script here  -->
     <script src="script.js"></script>
   </body>
 </html>

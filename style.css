@@ -1,37 +1,35 @@
 body {
-  background-color: blueviolet;
+  background-color: orange;
   color: White;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0;
   height: 100vh;
-  overflow: hidden;
-  padding: 10px;
+  padding: 8px;
 }
 
 h2 {
-  margin: 10px 0 20px;
+  margin: 10px 30px;
   text-align: center;
 }
 
 .container {
-  background-color: #23225b;
-  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+  background-color: yellowgreen;
   padding: 20px;
-  width: 360px;
+  width: 500px;
   max-width: 100%;
 }
 
 .result-container {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: grey;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  font-size: 18x;
+  font-size: 15px;
   letter-spacing: 1px;
   padding: 12px 10px;
   height: 50px;
@@ -46,7 +44,7 @@ h2 {
 .result-container .btn {
   position: absolute;
   top: 5px;
-  right: 5px;
+  right: 10px;
   width: 40px;
   height: 40px;
   font-size: 20px;
@@ -54,7 +52,7 @@ h2 {
 
 .btn {
   border: none;
-  background-color: #3b3b98;
+  background-color: pink;
   color: whitesmoke;
   font-size: 16px;
   padding: 8px 12px;
