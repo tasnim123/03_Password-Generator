@@ -1,8 +1,3 @@
-const resultEl = document.getElementById('result');
-const lengthEl = document.getElementById('length');
-const uppercaseEl = document.getElementById('uppercase');
-const lowercaseEl = document.getElementById('lowercase');
-const numberEl = document.getElementById('number');
 const generateEl = document.getElementById('generate');
 const clipboardEl = document.getElementById('clipboard');
 const symbolEl = document.getElementById('symbol');
@@ -12,36 +7,55 @@ const randomFunc = {
   upper: getRandomUpper,
   number: getRandomNumber,
   symbol: getRandomSymbols,
+};
+
+if (!generateEl) {
+  let msg = 'Element with id #generate not found';
+  alert(msg);
+  throw new Error(msg);
 }
+generateEl.addEventListener('click', () => {
+  const length = +document.getElementById('length').value;
+  const hasLower = document.getElementById('lowercase').checked;
+  const hasUpper = document.getElementById('uppercase').checked;
+  const hasNumber = document.getElementById('number').checked;
 
-generateEl.addEventListener('click',()=>{
-    const length = +lengthEl.value
-    const hasLower = lowercaseEl.checked
-    const hasUpper = uppercaseEl.checked
-    const hasNumber = numberEl.checked
-    
-    const hasSymbol = symbolEl.checked
+  const hasSymbol = symbolEl.checked;
 
-    resultEl.innerText = generatePassword(hasLower,hasUpper,hasNumber,hasSymbol,length)
-})
+  document.getElementById('result').innerText = makePassword(
+    hasLower,
+    hasUpper,
+    hasNumber,
+    hasSymbol,
+    length
+  );
+});
 
-function generatePassword(lower,upper,number,symbol,length){
- let pass = ''
- const typesCount = lower+upper+number+symbol
- const typesArr =[{lower},{upper},{number},{symbol}].filter(item=>Object.values(item)[0])
- if(typesCount === 0){
-     return ''
- }
+function makePassword(
+  lower = 0,
+  upper = 0,
+  number = 0,
+  symbol = 0,
+  length = 0
+) {
+  const password_property = 1;
+  // let pass = '';
 
- for(let i=0;i<length;i+=typesCount){
-     typesArr.forEach(type=>{
-         const funcName = Object.keys(type)[0]
-         pass +=randomFunc[funcName]()
-     })
- }
+  const typesArr = Object.entries({ lower, upper, number, symbol }).filter(
+    ([key, _type]) => _type
+  );
 
-  const finalPassword = pass.slice(0, length)
-   return finalPassword
+  if (!typesArr.length) throw new Error('password options invalid');
+  return new Array(length)
+    .fill(null)
+    .map((value, index) => {
+      return randomFunc[
+        Object.entries(typesArr)[index % (typesArr.length - 1)][
+          password_property
+        ][0]
+      ]();
+    })
+    .join('');
 }
 
 function getRandomLower() {
